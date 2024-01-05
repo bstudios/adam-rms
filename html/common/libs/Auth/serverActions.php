@@ -262,4 +262,16 @@ $serverActions = [
     'LEGACY-ID' => 17,
     'LEGACY-Sort Rank' => 14,
   ],
+  'FILES:VIEW' => [
+    'Category' => 'Instances',
+    'Table' => 's3Files',
+    'Type' => 'View',
+    'Detail' => 'View metadata about files stored on the server',
+    'Dependencies' => null,
+    'Comment' => null,
+    'Supported Token Types' => ["web-session"],
+    'LEGACY-Description' => '',
+    'LEGACY-ID' => null,
+    'LEGACY-Sort Rank' => null,
+  ],
 ];

@@ -550,6 +550,14 @@
                             {% endif %}
                         </ul>
                     </li>
+                    {% if "FILES:FILE_BROWSER:VIEW"|instancePermissions %}
+                    <li class="nav-item">
+                        <a href="{{ CONFIG.ROOTURL}}/files/" class="nav-link">
+                            <i class="nav-icon fas fa-folder"></i>
+                            <p>File Browser</p>
+                        </a>
+                    </li>
+                    {% endif %}
                     {% if "TRAINING:VIEW"|instancePermissions %}
                     <li class="nav-item">
                         <a href="{{ CONFIG.ROOTURL}}/training/" class="nav-link">
@@ -724,7 +732,7 @@
                         </li>
                     {% endif %}
                 {% endif %}
-                {% if "USERS:CREATE"|serverPermissions or "PERMISSIONS:VIEW"|serverPermissions or "VIEW-AUDIT-LOG"|serverPermissions or "VIEW-ANALYTICS"|serverPermissions or "INSTANCES:IMPORT:ASSETS"|serverPermissions %}
+                {% if "USERS:CREATE"|serverPermissions or "PERMISSIONS:VIEW"|serverPermissions or "VIEW-AUDIT-LOG"|serverPermissions or "VIEW-ANALYTICS"|serverPermissions or "INSTANCES:IMPORT:ASSETS"|serverPermissions or "FILES:VIEW"|serverPermissions %}
                 <li class="nav-header">SERVER ADMIN</li>
                 {% endif %}
             {% if "USERS:CREATE"|serverPermissions %}
@@ -782,6 +790,17 @@
                     </a>
                 </li>
             {% endif %}
+            {% if "FILES:VIEW"|serverPermissions %}
+                <li class="nav-item">
+                    <a href="{{ CONFIG.ROOTURL }}/server/files.php" class="nav-link">
+                        <i class="nav-icon fas fa-hdd"></i>
+                        <p>
+                            File Storage
+                            <span class="right badge badge-danger">Server-Wide</span>
+                        </p>
+                    </a>
+                </li>
+            {% endif %}
             {% if "INSTANCES:IMPORT:ASSETS"|serverPermissions %}
                 <li class="nav-item">
                     <a href="{{ CONFIG.ROOTURL }}/server/import.php" class="nav-link">
@@ -824,7 +843,7 @@
                 </div>
                 {% endif %}
                 {% if CONFIG.DEV %}
-                <div class="alert alert-warning alert-dismissible" style="border: 0px; margin-bottom: 0px;">
+                <div class="alert alert-warning" style="border: 0px; margin-bottom: 0px;">
                     <h4>
                         <i class="fa fa-terminal"></i> DEVELOPMENT BUILD - NOT FOR EXTERNAL USE
                     </h4>
